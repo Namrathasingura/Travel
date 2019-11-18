@@ -1,0 +1,125 @@
+//index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Share Your Travel Photos</title>
+    <style>
+        .all{width: 600px; margin-left: 30%; margin-top: 40px;}
+        legend{text-align: center;}
+        .inp,textarea{width: 100%}
+        select{width: 200px;}
+        legend{margin-bottom: 50px;}
+    </style>
+</head>
+<body>
+    <form action="res.php" method="get">
+        <fieldset class="all">
+            <legend>Photo Details</legend>
+            <label>Title</label>
+            <input class="inp" required="required" type="text" name="title"/><br><br>
+            <label>Description</label>
+            <textarea required="required" id="address" aria-required="true" rows="8" cols="45" name="description"></textarea>
+            <br><br>
+            <div style="width: 100%; display: flex">
+            <div style="width: 50%;">
+             <label>Continent</label><br>
+            <select name="continent">
+                <option selected disabled value="sa">Choose Continent</option>
+                <option value="South America">South America</option>
+                <option value="North America">North America</option>
+                <option value="Koria">Koria</option>
+                <option value="in">India</option>
+            </select><br>
+                <label>Country</label><br>
+                <select name="Country">
+                    <option selected disabled value="sa">Choose Your Country</option>
+                    <option value="Canada">Canada</option>
+                    <option value="India">India</option>
+                    <option value="Koria">Koria</option>
+                    <option value="America">America</option>
+                </select><br>
+                <label>City</label><br>
+                <input style="width:80%" type="text" name="city">
+            </div>
+            <div style="width: 50%;">
+            <fieldset>
+                <label>Copyright?</label><br>
+                <input type="radio" name="radio" value="1">All rights reserved<br>
+                <input type="radio" name="radio" value="2">Creative Commons
+            </fieldset><br>
+                <fieldset>
+                    <label>Creative Common Types</label><br>
+                    <input type="checkbox" name="checkbox">Attribution<br>
+                    <input type="checkbox" name="checkbox" >Noncommercial<br>
+                    <input type="checkbox" name="checkbox" >No Derivative Works<br>
+                    <input type="checkbox" name="checkbox" >Share Alike<br>
+                </fieldset>
+            </div>
+            </div><br><br>
+            <div style="width: 96%; height: 25px; background-color: gainsboro; padding: 10px;">
+                <label>I Accept the software license</label>
+                <input type="checkbox" required name="checkbox" >
+            </div><br>
+            <div style="width: 100%; display: flex">
+                <div style="width: 50%;">
+                    <label>Rate This Photo</label><br>
+                    <input type="number" required min="0" max="5" name="rate"><br>
+                    <label>Color Collection</label><br>
+                    <input type="color" required name="color">
+                </div>
+
+                <div style="width: 50%;">
+                    <fieldset>
+                        <label>Date Taken:</label><br>
+                        <input type="date" required name="date"><br><br>
+                        <label>Time Taken:</label><br>
+                        <input type="time" required name="time">
+                    </fieldset><br>
+                </div>
+            </div>
+            <div style="width: 96%; height: 30px; background-color: gainsboro; padding: 10px; text-align: center">
+                <button style="padding: 8px; "> Submit</button>
+                <button style="padding: 8px; "> Clear Form</button>
+            </div><br>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+//res.php
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+</head>
+<body>
+<h1>Form Input</h1>
+<h2>Get Data</h2>
+Title=<?php echo $_GET["title"]; ?><br>
+Description=<?php echo $_GET["description"]; ?><br>
+Continent=<?php echo $_GET["continent"]; ?><br>
+Country=<?php echo $_GET["Country"]; ?><br>
+City=<?php echo $_GET["city"]; ?><br>
+Copyright=<?php echo $_GET["radio"]; ?><br>
+CC=<?php echo $_GET["checkbox"]; ?><br>
+Accept=<?php echo $_GET["checkbox"]; ?><br>
+Rate=<?php echo $_GET["rate"]; ?><br>
+color=<?php echo $_GET["color"]; ?><br>
+Date=<?php echo $_GET["date"]; ?><br>
+Time=<?php echo $_GET["time"]; ?><br>
+<h2>POST DATA</h2>
+<p style="font-style: italic">There are no Post variable</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
